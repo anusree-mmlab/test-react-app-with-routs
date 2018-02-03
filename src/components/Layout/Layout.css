@@ -1,0 +1,20 @@
+ul {
+    
+}
+
+.li_link {
+    display: inline;
+    cursor: pointer;
+    color: blue;
+    font-size: 12px;
+    padding: 5px;
+    background-color: grey;
+    border: solid 1px crimson;
+    margin:5px;
+}
+
+.li_link:hover {
+    background-color: crimson;
+    border: solid 1px grey;
+    color: white;
+}

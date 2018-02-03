@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route} from 'react-router-dom';
+import classes from './App.css';
+import Aux from './hoc/Aux';
+import Layout from './components/Layout/Layout';
+import Burger from './containers/Burger';
+import Person from './containers/Person';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <Layout className={classes.App}>
+        <Route path="/" exact render={() => <h1>Home Page</h1>}/> 
+          <Route path="/burger" component={Burger}/>
+          <Route path="/person" component={Person}/>
+          {/* <Route path="" render={() => { console.log(this.props);return (<h1> Page Not Found </h1>)}}/> */}
+          
+        </Layout>
+      </BrowserRouter>
     );
   }
 }
