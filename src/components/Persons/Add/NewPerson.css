@@ -1,0 +1,9 @@
+.input {
+    width:200px;
+    height:auto;
+}
+
+.invalid {
+    border: solid 2px #C41010;
+    background-color: salmon;
+}
