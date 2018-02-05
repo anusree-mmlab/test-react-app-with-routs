@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    height:auto;
+    text-align: left;
+  }
+  
+  .item {
+    display:inline;
+    margin : 5px;
+    text-transform: capitalize;
+  }
+
+  .plusbutton {
+    padding: 2px;
+    color: green;
+    font-weight: bold;
+    font-size:22px;
+    cursor:pointer;
+  }
+
+  .minusbutton {
+    padding: 2px;
+    color : red;
+    font-weight: bold;
+    font-size:22px;
+    cursor:pointer;
+  }
+
