@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Radium from 'radium';
 import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux';
@@ -45,7 +46,8 @@ class NewPerson extends Component {
                 },
                 valid: false,
                 touched: false,
-                class:[classes.input]
+                class:[classes.input],
+                errorMessage : ''
             },
             age: {
                 value: '',
@@ -53,7 +55,8 @@ class NewPerson extends Component {
                     required: true,
                     number : true,
                     minVal: 5,
-                    maxVal:100
+                    maxVal:100,
+                    errorMessage : ''
                 },
                 valid: false,
                 touched: false,
@@ -117,8 +120,10 @@ class NewPerson extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <Aux>
+                <span>{this.props.counter}</span>
                 <input 
                     ref={(inp) => { this.inputElement = inp;  }}
                     type="text" 
@@ -133,6 +138,9 @@ class NewPerson extends Component {
                 <input type="button" style={Styles.button} 
                 value="Add Value" onClick={this.props.addValueClick.bind(this)} />
 
+                <input type="button" style={Styles.button} 
+                value="Counter" onClick={this.props.onAddCounter} />
+
                 <span id="add_error_msg" style={{fontSize:'10px',color:'red'}}></span>
             </Aux>
         );
@@ -143,5 +151,15 @@ NewPerson.propTypes = {
     addValueClick : PropTypes.func
 }
 
-export default Radium(NewPerson);
+const mapStateToProps = (state) => {
+    return state;
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAddCounter : () => dispatch({type : 'ON_ADD_COUNTER'})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Radium(NewPerson));
 //export default NewPerson;
