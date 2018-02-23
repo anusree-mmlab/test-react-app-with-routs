@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import classes from './App.css';
 import Aux from './hoc/Aux';
@@ -19,7 +20,11 @@ const AsyncPerson = asyncComponent(() => {
   return import('./containers/Person')
 })
 
-const store = createStore(reducer);
+const QuestionAnswerComponent = asyncComponent(() => {
+	return import('./containers/QuestionAnswer');
+});
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 
 
@@ -35,6 +40,7 @@ class App extends Component {
           */}
             <Route path="/burger" component={AsyncBurger}/>
             <Route path="/person" component={AsyncPerson}/>
+            <Route path="/questions" component={QuestionAnswerComponent}/>
           
             {/* <Route path="" render={() => { console.log(this.props);return (<h1> Page Not Found </h1>)}}/> */}
             

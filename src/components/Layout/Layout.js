@@ -15,24 +15,35 @@ class Layout extends Component{
                 <header  className={classes.Layout}>
                     <ul>
                     <Link to="/burger" onClick={() => {this.setState({currentMenu:'burger'})}}>
-                        <li className={classes.li_link}
-                            style={this.state.currentMenu==='burger' ? 
-                                    {backgroundColor:'crimson', color:'white'}  : 
-                                    {backgroundColor:'grey',color:'black'}
-                                }
-                            >
-                            Burger
-                        </li>
-                        </Link>
-                        <Link to="/person" onClick={() => {this.setState({currentMenu:'person'})}}>
-                        <li  className={classes.li_link} 
-                            style={this.state.currentMenu==='person' ? 
+                            <li className={classes.li_link}
+                                style={this.state.currentMenu==='burger' ? 
                                         {backgroundColor:'crimson', color:'white'}  : 
                                         {backgroundColor:'grey',color:'black'}
                                     }
                                 >
-                            Person
-                        </li>
+                                Burger
+                            </li>
+                        </Link>
+                        <Link to="/person" onClick={() => {this.setState({currentMenu:'person'})}}>
+                            <li  className={classes.li_link} 
+                                style={this.state.currentMenu==='person' ? 
+                                            {backgroundColor:'crimson', color:'white'}  : 
+                                            {backgroundColor:'grey',color:'black'}
+                                        }
+                                    >
+                                Person
+                            </li>
+                        </Link>
+
+                        <Link to="/questions" onClick={() => {this.setState({currentMenu:'questions'})}}>
+                            <li  className={classes.li_link} 
+                                style={this.state.currentMenu==='questions' ? 
+                                            {backgroundColor:'crimson', color:'white'}  : 
+                                            {backgroundColor:'grey',color:'black'}
+                                        }
+                                    >
+                                Questions
+                            </li>
                         </Link>
                 </ul>    
                 </header> 

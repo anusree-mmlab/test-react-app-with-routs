@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const withClass = (WrappedComponent, classNameVal) => {
-//Returning a class, a common way of implementing HOC
+//Returning an anonymous class, a common way of implementing HOC
 return class extends Component {
     render() {
 
